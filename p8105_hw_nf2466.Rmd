@@ -63,6 +63,8 @@ num_flipper=
      mean(as.numeric(pull(num_flipper,flipper_length_mm)))
 
 #plot of bill length vs flipper length
+  ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm)) + geom_point(aes(color=species))
+     
 bill_flipper_plot=
   ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm)) + geom_point(aes(color=species))
 
