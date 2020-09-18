@@ -48,3 +48,23 @@ prob1_factor =
 as.numeric (prob1_factor)*pull(prob1_df, samp) # convert the result to numeric, and multiply the random sample by the result
 ```
 # Problem 2
+```{r}
+data("penguins", package = "palmerpenguins")
+view(penguins)#data variables in the this dataset show there are 3 species of penguins from 3 islands and include variables of bill length, depth, flipper length, body mass, sex, and year.
+nrow(penguins) #there are 344 individual inputs (rows)
+ncol(penguins) #there are 8 different variables (columns)
+
+num_flipper=
+  subset(penguins,flipper_length_mm>0,) #take subset of flipper length > 0 and assign name 'num_flipper'
+    as.numeric(pull(num_flipper,flipper_length_mm)) #change 'num_flipper' to numeric
+    mean(as.numeric(pull(num_flipper,flipper_length_mm)))#take mean of numerical values of flipper length
+
+df_plot=
+  data.frame(
+  flipper = pull(penguins, flipper_length_mm),
+  bill = pull(penguins, bill_length_mm)
+  )
+
+ggplot(df_plot, aes(x = bill, y = flipper)) + geom_point()
+```
+
